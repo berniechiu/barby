@@ -28,7 +28,7 @@ module Barby
       self.barcode = barcode
     end
 
-  
+
     #Register one or more handler methods with this outputter
     #Barcodes will then be able to use these methods to get the output
     #from the outputter. For example, if you have an ImageOutputter,
@@ -111,7 +111,7 @@ module Barby
     #corresponding with the keys to their values. When the block exits, the
     #properties are reset to their original values. Returns whatever the block returns.
     def with_options(options={})
-      original_options = options.inject({}) do |origs,pair|
+      original_options = options.inject({}) do |origs, pair|
         if respond_to?(pair.first) && respond_to?("#{pair.first}=")
           origs[pair.first] = send(pair.first)
           send("#{pair.first}=", pair.last)
